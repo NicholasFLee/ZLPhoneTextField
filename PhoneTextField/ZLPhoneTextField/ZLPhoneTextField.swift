@@ -15,7 +15,7 @@ enum Separator: String {
 
 class ZLPhoneTextField: UITextField, UITextFieldDelegate {
     
-    let cSet = CharacterSet.init(charactersIn: "0123456789/b")
+    let cSet = CharacterSet.init(charactersIn: "0123456789")
     let separator: Separator
     
     init(separator: Separator) {
@@ -48,7 +48,6 @@ class ZLPhoneTextField: UITextField, UITextFieldDelegate {
         if newString.characters.last?.description == separator.rawValue {
             newString.remove(at: (newString.index(before: newString.endIndex)))
             textField.text = newString
-            print("newString\(newString)")
             return false
         }
         var rawStr = newString.replacingOccurrences(of: separator.rawValue, with: "")
